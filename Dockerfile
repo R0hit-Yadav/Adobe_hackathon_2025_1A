@@ -12,10 +12,10 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --no-cache-dir pdfplumber==0.11.4
 
 # Copy the Python script
-COPY process_pdfs_part1.py .
+COPY process_pdfs.py .
 
 # Create input and output directories
 RUN mkdir -p /input /output
 
 # Set the entrypoint to run the script
-ENTRYPOINT ["python", "process_pdfs_part1.py"]
+ENTRYPOINT ["python", "process_pdfs.py"]
