@@ -40,10 +40,11 @@ part1/
    - Ensure `Dockerfile`, `process_pdfs_part1.py`, and an `input` directory with PDFs are in the project root (`part1/`).
 
 2. **Build the Docker Image**:
-   ```bash
-   cd part1
-   docker build -t pdf-outline-extractor .
+
+    ```bash
+   sudo docker build --platform linux/amd64 -t adobe:hackathon25 .
    ```
+   
    - This creates a Docker image (~160 MB) with `python:3.11-slim` and `pdfplumber==0.11.4`.
 
 3. **Prepare Input PDFs**:
@@ -51,12 +52,6 @@ part1/
 
 ## Usage
 1. **Run the Docker Container**:
-
-   Build Image 
-
-   ```bash
-   sudo docker build --platform linux/amd64 -t adobe:hackathon25 .
-   ```
 
     ```bash
    sudo docker run --rm   -v $(pwd)/app/input:/app/input   -v $(pwd)/app/output:/app/output   --network none   adobe:hackathon25
