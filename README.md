@@ -51,11 +51,15 @@ part1/
 
 ## Usage
 1. **Run the Docker Container**:
+
+   Build Image 
+
    ```bash
-   docker run --rm \
-     -v $(pwd)/input:/input \
-     -v $(pwd)/output:/output \
-     pdf-outline-extractor
+   sudo docker build --platform linux/amd64 -t adobe:hackathon25 .
+   ```
+
+    ```bash
+   sudo docker run --rm   -v $(pwd)/app/input:/app/input   -v $(pwd)/app/output:/app/output   --network none   adobe:hackathon25
    ```
    - `--rm`: Removes the container after execution.
    - `-v $(pwd)/input:/input`: Mounts the local `input` directory to `/input` in the container.
